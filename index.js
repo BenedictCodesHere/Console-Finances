@@ -90,18 +90,15 @@ const finances = [
 
 
 // Solving
-var months = finances.length;
+const months = finances.length;
 console.log(months);
 
 function summingUp(param1) {
     let sum = 0;
 for (let i = 0; i < param1.length; i++) {
-    for (let j = 0; j < param1[i].length; j++) {
-        if (typeof(param1[i][j]) === "number") {
+    let j = 1; 
            sum += param1[i][j];
-        }
-        
-    }
+    
 }
 return sum;
 }
@@ -109,28 +106,44 @@ return sum;
 function changeInProfits(param1, i, j) {
     let difference = finances[0][1];
 for (let i = 0; i < param1.length; i++) {
-    for (let j = 0; j < param1[i].length; j++) {
-        if (typeof(param1[i][j]) === "number") {
-           difference -= param1[i][j];
-        }
-        
-    }
+    let j = 1;
+           difference -= param1[i][j]; 
 }
 return difference;
 }
 
-function maxChange(param1, i, j) {
-    let difference = finances[0][1];
+function breakArray(param1, i, j) {
+    let newArray = [];
 for (let i = 0; i < param1.length; i++) {
-    for (let j = 0; j < param1[i].length; j++) {
-        if (typeof(param1[i][j]) === "number") {
-           difference -= param1[i][j];
-        }
-        
+    let j = 1; {
+        newArray.push(param1[i][j]);
     }
 }
-return difference;
+
+return newArray;
 }
+
+const numArray = breakArray(finances);
+
+function changeMaj(param1, i, j) {
+    let diffArray = [];
+    
+    for (let i = 1, j = 0; i < param1.length; i++, j++) {
+        let whatDiff = param1[i];
+        whatDiff -= param1[j]; 
+        diffArray.push(whatDiff);
+    } 
+return diffArray;    
+}
+
+
+const daddyArray = changeMaj(numArray);
+
+
+console.log(numArray);
+
+
+
 
 console.log(summingUp(finances));
 
@@ -163,3 +176,4 @@ console.log("Total Months: " + months);
 console.log("Total: $" + summingUp(finances));
 console.log("Average Change: $" + Math.round(Math.abs(changeInProfits(finances)/months)));
 console.log("Greatest Increase in Profits: ")
+console.log(daddyArray)
