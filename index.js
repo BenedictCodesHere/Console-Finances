@@ -188,7 +188,10 @@ function searchForMin(param1, i) {
         }
 }
 
-
+const maxIndex = searchForMax(daddyArray);
+const minIndex = searchForMin(daddyArray);
+const maxMonth = finances[maxIndex + 1];
+const minMonth = finances[minIndex + 1];
 
 
 /*
@@ -228,4 +231,6 @@ console.log(totalDifference);
 console.log(meanDifference);
 console.log(searchForMax(daddyArray));
 console.log(searchForMin(daddyArray));
+console.log(maxMonth);
+console.log(minMonth);
 
