@@ -90,8 +90,11 @@ const finances = [
 
 
 // Solving
+
+// VARIABLE TO FIND NUMBER OF MONTHS
 const months = finances.length;
 
+// FUNCTION TO SUM THE TOTAL PROFITS
 function summingUp(param1) {
     let sum = 0;
 for (let i = 0; i < param1.length; i++) {
@@ -102,6 +105,8 @@ for (let i = 0; i < param1.length; i++) {
 return sum;
 }
 
+// FUNCTION TO FIND THE DIFFERENCE
+/*
 function changeInProfits(param1, i, j) {
     let difference = finances[0][1];
 for (let i = 0; i < param1.length; i++) {
@@ -110,7 +115,9 @@ for (let i = 0; i < param1.length; i++) {
 }
 return difference;
 }
+*/
 
+// FUNCTION TO CREATE AN ARRAY OF ONLY THE PROFITS AND LOSSES
 function breakTheArray(param1, i, j) {
     let newArray = [];
 for (let i = 0; i < param1.length; i++) {
@@ -122,8 +129,10 @@ for (let i = 0; i < param1.length; i++) {
 return newArray;
 }
 
+// DECLARING THE ARRAY OF PROFITS AND LOSSES
 const numArray = breakTheArray(finances);
 
+// FUNCTION TO CREATE AN ARRAY OF THE CHANGES IN PROFIT/LOSSES
 function changeMaj(param1, i, j) {
     let diffArray = [];
     
@@ -135,43 +144,34 @@ function changeMaj(param1, i, j) {
 return diffArray;    
 }
 
+// DECLARING THE ARRAY OF THE CHANGES IN PROFIT/LOSSES
+const differenceArray = changeMaj(numArray);
 
-const daddyArray = changeMaj(numArray);
 
+// console.log(numArray);
 
-console.log(numArray);
+// SUMMING THE PROFIT/LOSS ARRAY
+const totalProfit = numArray.reduce((a, b) => a + b, 0);
 
-const totalProfit = numArray.reduce((a, b) => a + b, 0)
+// SUMMING THE CHANGE IN PROFIT/LOSSES ARRAY
+const totalDifference = differenceArray.reduce((a, b) => a + b, 0);
 
-const totalDifference = daddyArray.reduce((a, b) => a + b, 0)
-
+// FINDING THE AVERAGE aka MEAN CHANGE IN PROFIT/LOSSES
 const meanDifference = Math.round(totalDifference/months);
 
+/*
 console.log(summingUp(finances));
 
-console.log(Math.round(Math.abs(changeInProfits(finances)/months)))
-
-
-
-const maxDifference = daddyArray.reduce((a, b) => Math.max(a, b), -Infinity);
-
-const minDifference = daddyArray.reduce((a, b) => Math.min(a, b), Infinity);
-
-
-
-
-// ITERATE AN INCREMENTING LOOP OVER DADDYARRAY SEARCHING FOR MAXDIFFERENCE
-
-/* if MAXDIFFERENCE == DADDYARRAY[n] {
-    return n
-} 
+console.log(Math.round(Math.abs(changeInProfits(finances)/months)));
 */
-// YOU THEN NEED TO PLUG N INTO financearray[n]
-// let i = n;
-// const maxMonth = financearray[i];
 
-// PLUG maxMonth into the console.log("Greatest Increase in Profits: " + maxMonth + "$" + maxDifference);
+// VARIABLES TO FIND THE MAX AND MIN VALUES OF differenceArray
+const maxDifference = differenceArray.reduce((a, b) => Math.max(a, b), -Infinity);
 
+const minDifference = differenceArray.reduce((a, b) => Math.min(a, b), Infinity);
+
+
+// FUNCTIONS FOR FINDING MAX AND MIN INDEX
 function searchForMax(param1, i) {
     for (let i = 0; i < param1.length; i++) {
     if (param1[i] == maxDifference) {
@@ -188,10 +188,13 @@ function searchForMin(param1, i) {
         }
 }
 
-const maxIndex = searchForMax(daddyArray);
-const minIndex = searchForMin(daddyArray);
-const maxMonth = finances[maxIndex + 1];
-const minMonth = finances[minIndex + 1];
+// VARIABLES FOR FINDING MAX AND MIN INDEX
+const maxIndex = searchForMax(differenceArray);
+const minIndex = searchForMin(differenceArray);
+
+// VARIABLES TO FIND CORRECT INDEX INSIDE finances ARRAY
+const maxMonth = finances[maxIndex + 1][0];
+const minMonth = finances[minIndex + 1][0];
 
 
 /*
@@ -216,21 +219,25 @@ if (n <= 0) {
 
 // Print To Console
 console.log("Financial Analysis");
+console.log("----------------------------------");
 console.log("Total Months: " + months);
 console.log("Total: $" + totalProfit);
 // summingUp(finances)
 console.log("Average Change: $" + meanDifference);
 //Math.round(Math.abs(changeInProfits(finances)/months)))
-console.log("Greatest Increase in Profits: $" + maxDifference);
-console.log("Greatest Decrease in Profits: $" + minDifference);
-console.log(daddyArray);
+console.log("Greatest Increase in Profits: " + maxMonth + " ($" + maxDifference + ")");
+console.log("Greatest Decrease in Profits: " + minMonth + " ($" + minDifference + ")");
+
+
+
+/* console.log(differenceArray);
 console.log(maxDifference);
 console.log(minDifference);
 console.log(totalProfit);
 console.log(totalDifference);
 console.log(meanDifference);
-console.log(searchForMax(daddyArray));
-console.log(searchForMin(daddyArray));
+console.log(searchForMax(differenceArray));
+console.log(searchForMin(differenceArray));
 console.log(maxMonth);
 console.log(minMonth);
-
+*/
