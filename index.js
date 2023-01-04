@@ -87,27 +87,28 @@ const finances = [
 ['Feb-2017', 671099]
 ];
 
+/*
+1) VARIABLE TO FIND TOTAL NUMBER OF MONTHS
+2) FUNCTION TO CREATE AN ARRAY OF ONLY THE PROFITS AND LOSSES
+3) DECLARING THE ARRAY OF PROFITS AND LOSSES
+4) FUNCTION TO CREATE AN ARRAY OF THE CHANGES IN PROFIT/LOSSES
+5) DECLARING THE ARRAY OF THE CHANGES IN PROFIT/LOSSES
+6) SUMMING THE PROFIT/LOSS ARRAY
+7) SUMMING THE CHANGE IN PROFIT/LOSSES ARRAY
+8) FINDING THE AVERAGE aka MEAN CHANGE IN PROFIT/LOSSES
+9) VARIABLES TO FIND THE MAX AND MIN VALUES OF differenceArray
+10) FUNCTIONS FOR FINDING MAX AND MIN INDEX
+11) VARIABLES FOR FINDING MAX AND MIN INDEX
+12) VARIABLES TO FIND CORRECT NESTED ARRAY INSIDE finances ARRAY
+*/
 
 
 // Solving
 
-// VARIABLE TO FIND NUMBER OF MONTHS
+// 1) VARIABLE TO FIND TOTAL NUMBER OF MONTHS
 const months = finances.length;
 
-// FUNCTION TO SUM THE TOTAL PROFITS
-function summingUp(param1) {
-    let sum = 0;
-for (let i = 0; i < param1.length; i++) {
-    let j = 1; 
-           sum += param1[i][j];
-    
-}
-return sum;
-};
-
-
-
-// FUNCTION TO CREATE AN ARRAY OF ONLY THE PROFITS AND LOSSES
+// 2) FUNCTION TO CREATE AN ARRAY OF ONLY THE PROFITS AND LOSSES
 function breakTheArray(param1, i, j) {
     let newArray = [];
 for (let i = 0; i < param1.length; i++) {
@@ -119,10 +120,10 @@ for (let i = 0; i < param1.length; i++) {
 return newArray;
 };
 
-// DECLARING THE ARRAY OF PROFITS AND LOSSES
+// 3) DECLARING THE ARRAY OF PROFITS AND LOSSES
 const numArray = breakTheArray(finances);
 
-// FUNCTION TO CREATE AN ARRAY OF THE CHANGES IN PROFIT/LOSSES
+// 4) FUNCTION TO CREATE AN ARRAY OF THE CHANGES IN PROFIT/LOSSES
 function changeMaj(param1, i, j) {
     let diffArray = [];
     
@@ -134,26 +135,24 @@ function changeMaj(param1, i, j) {
 return diffArray;    
 };
 
-// DECLARING THE ARRAY OF THE CHANGES IN PROFIT/LOSSES
+// 5) DECLARING THE ARRAY OF THE CHANGES IN PROFIT/LOSSES
 const differenceArray = changeMaj(numArray);
 
-// console.log(numArray);
-
-// SUMMING THE PROFIT/LOSS ARRAY
+// 6) SUMMING THE PROFIT/LOSS ARRAY
 const totalProfit = numArray.reduce((a, b) => a + b, 0);
 
-// SUMMING THE CHANGE IN PROFIT/LOSSES ARRAY
+// 7) SUMMING THE CHANGE IN PROFIT/LOSSES ARRAY
 const totalDifference = differenceArray.reduce((a, b) => a + b, 0);
 
-// FINDING THE AVERAGE aka MEAN CHANGE IN PROFIT/LOSSES
+// 8) FINDING THE AVERAGE aka MEAN CHANGE IN PROFIT/LOSSES
 const meanDifference = Math.round(totalDifference/months);
 
-// VARIABLES TO FIND THE MAX AND MIN VALUES OF differenceArray
+// 9) VARIABLES TO FIND THE MAX AND MIN VALUES OF differenceArray
 const maxDifference = differenceArray.reduce((a, b) => Math.max(a, b), -Infinity);
 
 const minDifference = differenceArray.reduce((a, b) => Math.min(a, b), Infinity);
 
-// FUNCTIONS FOR FINDING MAX AND MIN INDEX
+// 10) FUNCTIONS FOR FINDING MAX AND MIN INDEX
 function searchForMax(param1, i) {
     for (let i = 0; i < param1.length; i++) {
     if (param1[i] == maxDifference) {
@@ -170,11 +169,11 @@ function searchForMin(param1, i) {
         }
 };
 
-// VARIABLES FOR FINDING MAX AND MIN INDEX
+// 11) VARIABLES FOR FINDING MAX AND MIN INDEX
 const maxIndex = searchForMax(differenceArray);
 const minIndex = searchForMin(differenceArray);
 
-// VARIABLES TO FIND CORRECT INDEX INSIDE finances ARRAY
+// 12) VARIABLES TO FIND CORRECT NESTED ARRAY INSIDE finances ARRAY
 const maxMonth = finances[maxIndex + 1][0];
 const minMonth = finances[minIndex + 1][0];
 
