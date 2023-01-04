@@ -150,6 +150,11 @@ console.log(summingUp(finances));
 console.log(Math.round(Math.abs(changeInProfits(finances)/months)))
 
 
+
+const maxDifference = daddyArray.reduce((a, b) => Math.max(a, b), -Infinity);
+
+const minDifference = daddyArray.reduce((a, b) => Math.min(a, b), Infinity);
+
 /*
 for (let i = 0; i < finances.length; i++){
 var financeArray = [];
@@ -175,5 +180,8 @@ console.log("Financial Analysis");
 console.log("Total Months: " + months);
 console.log("Total: $" + summingUp(finances));
 console.log("Average Change: $" + Math.round(Math.abs(changeInProfits(finances)/months)));
-console.log("Greatest Increase in Profits: ")
+console.log("Greatest Increase in Profits: $" + maxDifference)
+console.log("Greatest Decrease in Profits: $" + minDifference)
 console.log(daddyArray)
+console.log(maxDifference)
+console.log(minDifference)
