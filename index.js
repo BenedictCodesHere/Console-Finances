@@ -87,6 +87,8 @@ const finances = [
 ['Feb-2017', 671099]
 ];
 
+// Pseudocode
+
 /*
 1) VARIABLE TO FIND TOTAL NUMBER OF MONTHS
 2) FUNCTION TO CREATE AN ARRAY OF ONLY THE PROFITS AND LOSSES
@@ -145,7 +147,7 @@ const totalProfit = numArray.reduce((a, b) => a + b, 0);
 const totalDifference = differenceArray.reduce((a, b) => a + b, 0);
 
 // 8) FINDING THE AVERAGE aka MEAN CHANGE IN PROFIT/LOSSES
-const meanDifference = Math.round((totalDifference/months)* 100) / 100;
+const meanDifference = Math.round((totalDifference/differenceArray.length)* 100) / 100;
 
 // 9) VARIABLES TO FIND THE MAX AND MIN VALUES OF differenceArray
 const maxDifference = differenceArray.reduce((a, b) => Math.max(a, b), -Infinity);
@@ -185,4 +187,7 @@ console.log("Total: $" + totalProfit);
 console.log("Average Change: $" + meanDifference);
 console.log("Greatest Increase in Profits: " + maxMonth + " ($" + maxDifference + ")");
 console.log("Greatest Decrease in Profits: " + minMonth + " ($" + minDifference + ")");
+
+
+console.log(differenceArray);
 
