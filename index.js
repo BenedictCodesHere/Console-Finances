@@ -103,19 +103,9 @@ for (let i = 0; i < param1.length; i++) {
     
 }
 return sum;
-}
+};
 
-// FUNCTION TO FIND THE DIFFERENCE
-/*
-function changeInProfits(param1, i, j) {
-    let difference = finances[0][1];
-for (let i = 0; i < param1.length; i++) {
-    let j = 1;
-           difference -= param1[i][j]; 
-}
-return difference;
-}
-*/
+
 
 // FUNCTION TO CREATE AN ARRAY OF ONLY THE PROFITS AND LOSSES
 function breakTheArray(param1, i, j) {
@@ -127,7 +117,7 @@ for (let i = 0; i < param1.length; i++) {
 }
 
 return newArray;
-}
+};
 
 // DECLARING THE ARRAY OF PROFITS AND LOSSES
 const numArray = breakTheArray(finances);
@@ -142,11 +132,10 @@ function changeMaj(param1, i, j) {
         diffArray.push(whatDiff);
     } 
 return diffArray;    
-}
+};
 
 // DECLARING THE ARRAY OF THE CHANGES IN PROFIT/LOSSES
 const differenceArray = changeMaj(numArray);
-
 
 // console.log(numArray);
 
@@ -159,17 +148,10 @@ const totalDifference = differenceArray.reduce((a, b) => a + b, 0);
 // FINDING THE AVERAGE aka MEAN CHANGE IN PROFIT/LOSSES
 const meanDifference = Math.round(totalDifference/months);
 
-/*
-console.log(summingUp(finances));
-
-console.log(Math.round(Math.abs(changeInProfits(finances)/months)));
-*/
-
 // VARIABLES TO FIND THE MAX AND MIN VALUES OF differenceArray
 const maxDifference = differenceArray.reduce((a, b) => Math.max(a, b), -Infinity);
 
 const minDifference = differenceArray.reduce((a, b) => Math.min(a, b), Infinity);
-
 
 // FUNCTIONS FOR FINDING MAX AND MIN INDEX
 function searchForMax(param1, i) {
@@ -178,7 +160,7 @@ function searchForMax(param1, i) {
         return i;
     }
         }
-}
+};
 
 function searchForMin(param1, i) {
     for (let i = 0; i < param1.length; i++) {
@@ -186,7 +168,7 @@ function searchForMin(param1, i) {
         return i;
     }
         }
-}
+};
 
 // VARIABLES FOR FINDING MAX AND MIN INDEX
 const maxIndex = searchForMax(differenceArray);
@@ -196,48 +178,12 @@ const minIndex = searchForMin(differenceArray);
 const maxMonth = finances[maxIndex + 1][0];
 const minMonth = finances[minIndex + 1][0];
 
-
-/*
-for (let i = 0; i < finances.length; i++){
-var financeArray = [];
-financeArray.push(finances[i][1]);
-
-}
-*/
-
-/*
-function averageChange(finances, n, i) {
-    for (let i = 0; i < finances.length; i++) {
-if (n <= 0) {
-    return 1;
-} else {
-    return averageChange(finances[i][1], n - 1) - finances[n - 1][1];
-}
-}
-}
-*/
-
 // Print To Console
 console.log("Financial Analysis");
 console.log("----------------------------------");
 console.log("Total Months: " + months);
 console.log("Total: $" + totalProfit);
-// summingUp(finances)
 console.log("Average Change: $" + meanDifference);
-//Math.round(Math.abs(changeInProfits(finances)/months)))
 console.log("Greatest Increase in Profits: " + maxMonth + " ($" + maxDifference + ")");
 console.log("Greatest Decrease in Profits: " + minMonth + " ($" + minDifference + ")");
 
-
-
-/* console.log(differenceArray);
-console.log(maxDifference);
-console.log(minDifference);
-console.log(totalProfit);
-console.log(totalDifference);
-console.log(meanDifference);
-console.log(searchForMax(differenceArray));
-console.log(searchForMin(differenceArray));
-console.log(maxMonth);
-console.log(minMonth);
-*/
