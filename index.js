@@ -91,7 +91,6 @@ const finances = [
 
 // Solving
 const months = finances.length;
-console.log(months);
 
 function summingUp(param1) {
     let sum = 0;
@@ -112,7 +111,7 @@ for (let i = 0; i < param1.length; i++) {
 return difference;
 }
 
-function breakArray(param1, i, j) {
+function breakTheArray(param1, i, j) {
     let newArray = [];
 for (let i = 0; i < param1.length; i++) {
     let j = 1; {
@@ -123,7 +122,7 @@ for (let i = 0; i < param1.length; i++) {
 return newArray;
 }
 
-const numArray = breakArray(finances);
+const numArray = breakTheArray(finances);
 
 function changeMaj(param1, i, j) {
     let diffArray = [];
@@ -142,8 +141,11 @@ const daddyArray = changeMaj(numArray);
 
 console.log(numArray);
 
+const totalProfit = numArray.reduce((a, b) => a + b, 0)
 
+const totalDifference = daddyArray.reduce((a, b) => a + b, 0)
 
+const meanDifference = Math.round(totalDifference/months);
 
 console.log(summingUp(finances));
 
@@ -178,10 +180,15 @@ if (n <= 0) {
 // Print To Console
 console.log("Financial Analysis");
 console.log("Total Months: " + months);
-console.log("Total: $" + summingUp(finances));
-console.log("Average Change: $" + Math.round(Math.abs(changeInProfits(finances)/months)));
-console.log("Greatest Increase in Profits: $" + maxDifference)
-console.log("Greatest Decrease in Profits: $" + minDifference)
-console.log(daddyArray)
-console.log(maxDifference)
-console.log(minDifference)
+console.log("Total: $" + totalProfit);
+// summingUp(finances)
+console.log("Average Change: $" + meanDifference);
+//Math.round(Math.abs(changeInProfits(finances)/months)))
+console.log("Greatest Increase in Profits: $" + maxDifference);
+console.log("Greatest Decrease in Profits: $" + minDifference);
+console.log(daddyArray);
+console.log(maxDifference);
+console.log(minDifference);
+console.log(totalProfit);
+console.log(totalDifference);
+console.log(meanDifference);
