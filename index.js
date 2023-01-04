@@ -157,6 +157,40 @@ const maxDifference = daddyArray.reduce((a, b) => Math.max(a, b), -Infinity);
 
 const minDifference = daddyArray.reduce((a, b) => Math.min(a, b), Infinity);
 
+
+
+
+// ITERATE AN INCREMENTING LOOP OVER DADDYARRAY SEARCHING FOR MAXDIFFERENCE
+
+/* if MAXDIFFERENCE == DADDYARRAY[n] {
+    return n
+} 
+*/
+// YOU THEN NEED TO PLUG N INTO financearray[n]
+// let i = n;
+// const maxMonth = financearray[i];
+
+// PLUG maxMonth into the console.log("Greatest Increase in Profits: " + maxMonth + "$" + maxDifference);
+
+function searchForMax(param1, i) {
+    for (let i = 0; i < param1.length; i++) {
+    if (param1[i] == maxDifference) {
+        return i;
+    }
+        }
+}
+
+function searchForMin(param1, i) {
+    for (let i = 0; i < param1.length; i++) {
+    if (param1[i] == minDifference) {
+        return i;
+    }
+        }
+}
+
+
+
+
 /*
 for (let i = 0; i < finances.length; i++){
 var financeArray = [];
@@ -192,3 +226,6 @@ console.log(minDifference);
 console.log(totalProfit);
 console.log(totalDifference);
 console.log(meanDifference);
+console.log(searchForMax(daddyArray));
+console.log(searchForMin(daddyArray));
+
