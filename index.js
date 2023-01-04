@@ -145,7 +145,7 @@ const totalProfit = numArray.reduce((a, b) => a + b, 0);
 const totalDifference = differenceArray.reduce((a, b) => a + b, 0);
 
 // 8) FINDING THE AVERAGE aka MEAN CHANGE IN PROFIT/LOSSES
-const meanDifference = Math.round(totalDifference/months);
+const meanDifference = Math.round((totalDifference/months)* 100) / 100;
 
 // 9) VARIABLES TO FIND THE MAX AND MIN VALUES OF differenceArray
 const maxDifference = differenceArray.reduce((a, b) => Math.max(a, b), -Infinity);
