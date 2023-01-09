@@ -29,6 +29,10 @@ N/A
 
 The way to use the deployed application is to check the console, to view what has been printed to it. You can also view the Javascript code in the console if necessary. 
 
+## Screenshot Of Deployed Application
+
+![ScreenShot](screenshot.png)
+
 ## Credits
 
 N/A
