@@ -31,7 +31,7 @@ The way to use the deployed application is to check the console, to view what ha
 
 ## Screenshot Of Deployed Application
 
-![ScreenShot](screenshot.png)
+![ScreenShot](screenshot1.png)
 
 ## Credits
 
