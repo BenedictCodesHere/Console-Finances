@@ -107,11 +107,13 @@ const finances = [
 
 // Solving
 
+// Solving
+
 // 1) VARIABLE TO FIND TOTAL NUMBER OF MONTHS
 const months = finances.length;
 
 // 2) FUNCTION TO CREATE AN ARRAY OF ONLY THE PROFITS AND LOSSES
-function breakTheArray(param1, i, j) {
+function breakTheArray(param1) {
     let newArray = [];
 for (let i = 0; i < param1.length; i++) {
     let j = 1; {
@@ -126,19 +128,19 @@ return newArray;
 const numArray = breakTheArray(finances);
 
 // 4) FUNCTION TO CREATE AN ARRAY OF THE CHANGES IN PROFIT/LOSSES
-function changeMaj(param1, i, j) {
+function changeInProfits(param1) {
     let diffArray = [];
     
     for (let i = 1, j = 0; i < param1.length; i++, j++) {
-        let whatDiff = param1[i];
-        whatDiff -= param1[j]; 
-        diffArray.push(whatDiff);
+        let currentDifference = param1[i];
+        currentDifference -= param1[j]; 
+        diffArray.push(currentDifference);
     } 
 return diffArray;    
 };
 
 // 5) DECLARING THE ARRAY OF THE CHANGES IN PROFIT/LOSSES
-const differenceArray = changeMaj(numArray);
+const differenceArray = changeInProfits(numArray);
 
 // 6) SUMMING THE PROFIT/LOSS ARRAY
 const totalProfit = numArray.reduce((a, b) => a + b, 0);
@@ -155,7 +157,7 @@ const maxDifference = differenceArray.reduce((a, b) => Math.max(a, b), -Infinity
 const minDifference = differenceArray.reduce((a, b) => Math.min(a, b), Infinity);
 
 // 10) FUNCTIONS FOR FINDING MAX AND MIN INDEX
-function searchForMax(param1, i) {
+function searchForMax(param1) {
     for (let i = 0; i < param1.length; i++) {
     if (param1[i] == maxDifference) {
         return i;
@@ -163,7 +165,7 @@ function searchForMax(param1, i) {
         }
 };
 
-function searchForMin(param1, i) {
+function searchForMin(param1) {
     for (let i = 0; i < param1.length; i++) {
     if (param1[i] == minDifference) {
         return i;
@@ -187,7 +189,3 @@ console.log("Total: $" + totalProfit);
 console.log("Average Change: $" + meanDifference);
 console.log("Greatest Increase in Profits: " + maxMonth + " ($" + maxDifference + ")");
 console.log("Greatest Decrease in Profits: " + minMonth + " ($" + minDifference + ")");
-
-
-console.log(differenceArray);
-
